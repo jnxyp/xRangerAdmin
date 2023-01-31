@@ -17,6 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('adminManagement/', include('adminManagement.urls')),
+    path('', include('adminManagement.urls')),
     path('admin/', admin.site.urls),
 ]
+
+
+admin.site.site_header = 'xRanger Admin Management'                    # default: "Django Administration"
+admin.site.index_title = 'Features area'                 # default: "Site administration"
+admin.site.site_title = 'HTML title from adminsitration' # default: "Django site admin"
