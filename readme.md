@@ -7,4 +7,8 @@ intro
 1. Create a python virtual environment with command `python3 -m venv venv`
 2. Activate the virtual environment (Windows: `source .\venv\Scripts\activate`)
 3. Install dependencies `pip install -r requirements.txt`
-4. 
+4. Start the server by typing `manage.py runserver 8000` in the terminal.
+5. Go to `http://127.0.0.1:8000/` in the browser.
+6. Click the `admin page` at the index page
+7. Use this account to login. Username: `admin` Password:`admin`
+8. Feel free to add or change any instance.
