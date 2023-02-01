@@ -23,5 +23,5 @@ urlpatterns = [
 
 
 admin.site.site_header = 'xRanger Admin Management'                    # default: "Django Administration"
-admin.site.index_title = 'Features area'                 # default: "Site administration"
-admin.site.site_title = 'HTML title from adminsitration' # default: "Django site admin"
+# admin.site.index_title = 'Features area'                 # default: "Site administration"
+# admin.site.site_title = 'HTML title from adminsitration' # default: "Django site admin"
