@@ -11,14 +11,41 @@ class User(models.Model):
     age = models.IntegerField(default=0)
     phone = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.auth_user.username
+
 
 class GolfRange(models.Model):
     # golf_range_id = models.IntegerField(default=0, primary_key=True)
     golf_range_name = models.CharField(max_length=255)
     golf_range_address = models.CharField(max_length=255)
-    golf_range_area = models.IntegerField(default=0)
+    golf_range_count = models.IntegerField(default=0)
     golf_range_staff_number = models.IntegerField(default=0)
     users = models.ManyToManyField(User, blank=True)
+
+    def __str__(self):
+        return self.golf_range_name
+
+
+class GolfDrivingRange(models.Model):
+    # golf_range_id = models.IntegerField(default=0, primary_key=True)
+    golf_range = models.ForeignKey(GolfRange, on_delete=models.CASCADE)
+    range_number = models.IntegerField(default=0)
+    golf_driving_range_area = models.DecimalField(max_digits=8, decimal_places=2, default=0)
+
+    @property
+    def golf_range_name(self):
+        return self.golf_range.golf_range_name
+
+    def __str__(self):
+        return "{0} driving_range_number_{1}".format(self.golf_range_name, self.range_number)
+
+
+class GeographicalCoordinate(models.Model):
+    # geographical_coordinate_id = models.IntegerField(default=0, primary_key=True)
+    geographical_coordinate_latitude = models.DecimalField(max_digits=22, decimal_places=16, default=0)
+    geographical_coordinate_longitude = models.DecimalField(max_digits=22, decimal_places=16, default=0)
+    golf_driving_range = models.ForeignKey(GolfDrivingRange, on_delete=models.CASCADE)
 
 
 class Robot(models.Model):
